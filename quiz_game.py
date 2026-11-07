@@ -31,13 +31,21 @@ for question in questions:
     for option in question["options"]:
         print(option)
 
-    answer = input("Enter your answer (A, B, C, D): ").upper()
+    try:  # CORRECT: inside the loop
+        answer = input("Enter your answer (A, B, C, D): ").upper()
 
-    if answer == question["answer"]:
-        print("Correct!")
-        score += 1
-    else:
-        print("Wrong answer!")
+        if answer not in ["A", "B", "C", "D"]:
+            raise ValueError("Invalid option. Choose A, B, C, or D.")
+
+        if answer == question["answer"]:
+            print("Correct!")
+            score += 1
+        else:
+            print("Wrong answer!")
+
+    except ValueError as e:
+        print(e)
 
 print("\nQuiz completed!")
 print(f"Your total score is {score}/{len(questions)}")
+

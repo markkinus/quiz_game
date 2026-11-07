@@ -53,6 +53,8 @@ print(f"Your total score is {score}/{len(questions)}")
 
 percentage = (score / len(questions)) * 100
 
+print(f"Your percentage is {percentage:.2f}%")
+
 if percentage >= 80:
     print("Excellent!")
 elif percentage >= 50:

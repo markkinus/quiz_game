@@ -49,3 +49,12 @@ for question in questions:
 print("\nQuiz completed!")
 print(f"Your total score is {score}/{len(questions)}")
 
+percentage = (score / len(questions)) * 100
+
+if percentage >= 80:
+    print("Excellent!")
+elif percentage >= 50:
+    print("Good!")
+else:
+    print("Try Again!")
+

@@ -3,23 +3,22 @@ import random
 # questions and options
 questions = [
     {
-    "question": "What is 15 + 10?",
-    "options" : ["A. 25", "B. 23", "C. 34", "D. 12"], 
-    "answer": "A"
-}, 
-{
-    "question": "What is 13 + 10?",
-    "options" : ["A. 25", "B. 23", "C. 34", "D. 12"],
-    "answer": "B"
-},
-{
-    "question": "What is 24 + 10?",
-    "options" : ["A. 25", "B. 23", "C. 34", "D. 12"],
-    "answer": "C"
-}
+        "question": "What is 15 + 10?",
+        "options": ["A. 25", "B. 23", "C. 34", "D. 12"],
+        "answer": "A"
+    },
+    {
+        "question": "What is 13 + 10?",
+        "options": ["A. 25", "B. 23", "C. 34", "D. 12"],
+        "answer": "B"
+    },
+    {
+        "question": "What is 24 + 10?",
+        "options": ["A. 25", "B. 23", "C. 34", "D. 12"],
+        "answer": "C"
+    }
 ]
 
-# display questions and options
 
 score = 0
 
@@ -31,20 +30,23 @@ for question in questions:
     for option in question["options"]:
         print(option)
 
-    try:  # CORRECT: inside the loop
-        answer = input("Enter your answer (A, B, C, D): ").upper()
+    while True:
+        try:
+            answer = input("Enter your answer (A, B, C, D): ").upper()
 
-        if answer not in ["A", "B", "C", "D"]:
-            raise ValueError("Invalid option. Choose A, B, C, or D.")
+            if answer not in ["A", "B", "C", "D"]:
+                raise ValueError("Choose A, B, C, or D.")
 
-        if answer == question["answer"]:
-            print("Correct!")
-            score += 1
-        else:
-            print("Wrong answer!")
+            break
 
-    except ValueError as e:
-        print(e)
+        except ValueError as e:
+            print(e)
+
+    if answer == question["answer"]:
+        print("Correct!")
+        score += 1
+    else:
+        print("Wrong answer!")
 
 print("\nQuiz completed!")
 print(f"Your total score is {score}/{len(questions)}")
@@ -57,4 +59,3 @@ elif percentage >= 50:
     print("Good!")
 else:
     print("Try Again!")
-

@@ -16,4 +16,23 @@ questions = [
 }
 ]
 
+# display questions and options
 
+score = 0
+
+for question in questions:
+    print("\n" + question["question"])
+
+    for option in question["options"]:
+        print(option)
+
+    answer = input("Enter your answer (A, B, C, D): ").upper()
+
+    if answer == question["answer"]:
+        print("Correct!")
+        score += 1
+    else:
+        print("Wrong answer!")
+
+print("\nQuiz completed!")
+print(f"Your total score is {score}/{len(questions)}")

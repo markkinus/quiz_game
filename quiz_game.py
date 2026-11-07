@@ -1,3 +1,6 @@
+import random
+
+# questions and options
 questions = [
     {
     "question": "What is 15 + 10?",
@@ -19,6 +22,8 @@ questions = [
 # display questions and options
 
 score = 0
+
+random.shuffle(questions)
 
 for question in questions:
     print("\n" + question["question"])
